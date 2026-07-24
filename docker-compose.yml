@@ -2,11 +2,14 @@ services:
   web:
     build: .
     container_name: norexiseo-web
+    # Если порт занят: HOST_PORT=<свободный> docker compose up -d
+    # Для Dokploy можно удалить ports целиком: домен в UI -> service web, port 3000
     ports:
-      - "${HOST_PORT:-8080}:3000"
+      - "${HOST_PORT:-8973}:3000"
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/health"]
+      # 127.0.0.1, не localhost: в alpine localhost резолвится в ::1, а Bun слушает IPv4
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/health"]
       interval: 30s
       timeout: 5s
       retries: 3

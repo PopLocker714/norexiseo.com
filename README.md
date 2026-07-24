@@ -17,11 +17,25 @@ Or watch mode: `bun run dev`
 
 ```bash
 docker compose up -d --build
-# site on http://<host>:8080  (override with HOST_PORT=... )
+# site on http://<host>:8973
+# port busy? pick any free one:
+HOST_PORT=9021 docker compose up -d
 ```
 
-Container serves on internal port 3000 with a `/health` healthcheck —
-point Dokploy / any reverse proxy for `norexiseo.com` at service `web:3000`.
+Container serves on internal port 3000 with a `/health` healthcheck.
+
+### Dokploy
+
+Cleanest setup — no host port at all:
+
+1. Delete the `ports:` block from `docker-compose.yml` (Traefik talks to the
+   container directly, nothing to collide with).
+2. In Dokploy UI → your compose project → **Domains**: add `norexiseo.com`,
+   service `web`, port `3000`.
+3. Redeploy.
+
+If you keep `ports:`, set the `HOST_PORT` env var in Dokploy to a port that is
+free on the server.
 
 ## Contact
 
