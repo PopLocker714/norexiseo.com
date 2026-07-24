@@ -1,0 +1,14 @@
+{
+  "name": "norexiseo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "bunx @tailwindcss/cli -i src/styles.css -o public/styles.css --minify",
+    "dev": "bunx @tailwindcss/cli -i src/styles.css -o public/styles.css --watch & bun --watch server.ts",
+    "start": "bun server.ts"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

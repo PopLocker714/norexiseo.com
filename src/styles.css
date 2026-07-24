@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  /* Institutional navy scale (USWDS-adjacent) */
+  --color-brand-50: #f2f4f7;
+  --color-brand-100: #e4e8ee;
+  --color-brand-200: #c9d2dd;
+  --color-brand-300: #a3b3c6;
+  --color-brand-400: #6f89a6;
+  --color-brand-500: #476a8e;
+  --color-brand-600: #1a4480;
+  --color-brand-700: #162e51;
+  --color-brand-800: #11243e;
+  --color-brand-900: #0d1b2f;
+  --color-brand-950: #081120;
+
+  /* Institutional typography: serif display, neutral grotesque body */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
